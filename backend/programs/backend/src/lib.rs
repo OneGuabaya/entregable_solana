@@ -28,6 +28,27 @@ pub mod backend {
         Ok(())
     }
 
+    pub fn update_developer(
+        ctx: Context<UpdateDeveloper>,
+        name: String,
+        last_name: String,
+        city: String,
+        country: String,
+        contact: String,
+        techs: String,
+        hourly_rate: u64,
+    ) -> Result<()> {
+        let dev_account = &mut ctx.accounts.dev_account;
+        dev_account.name = name;
+        dev_account.last_name = last_name;
+        dev_account.city = city;
+        dev_account.country = country;
+        dev_account.contact = contact;
+        dev_account.techs = techs;
+        dev_account.hourly_rate = hourly_rate;
+        Ok(())
+    }
+
     pub fn delete_developer(_ctx: Context<DeleteDeveloper>) -> Result<()> {
         msg!("Perfil eliminado exitosamente. SOL devuelto al dueño.");
         Ok(())
@@ -57,6 +78,19 @@ pub struct DeleteDeveloper<'info> {
         bump,
         close = user, // Esta instrucción cierra la cuenta y devuelve el SOL al user
         constraint = dev_account.owner == user.key() // Seguridad: Solo el dueño borra
+    )]
+    pub dev_account: Account<'info, DeveloperProfile>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct UpdateDeveloper<'info> {
+    #[account(
+        mut,
+        seeds = [b"developer", user.key().as_ref()],
+        bump,
+        constraint = dev_account.owner == user.key() // Seguridad: Solo el dueño edita
     )]
     pub dev_account: Account<'info, DeveloperProfile>,
     #[account(mut)]

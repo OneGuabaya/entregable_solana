@@ -1,4 +1,10 @@
-{
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/backend.json`.
+ */
+export type Backend = {
   "address": "TLx9BAKaDHPT3aeZy3j6EzUmiXCcTsj86Dzv8LYL3a6",
   "metadata": {
     "name": "backend",
@@ -8,7 +14,7 @@
   },
   "instructions": [
     {
-      "name": "delete_developer",
+      "name": "deleteDeveloper",
       "discriminator": [
         11,
         248,
@@ -21,7 +27,7 @@
       ],
       "accounts": [
         {
-          "name": "dev_account",
+          "name": "devAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -55,7 +61,7 @@
       "args": []
     },
     {
-      "name": "register_developer",
+      "name": "registerDeveloper",
       "discriminator": [
         84,
         32,
@@ -68,7 +74,7 @@
       ],
       "accounts": [
         {
-          "name": "dev_account",
+          "name": "devAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -99,7 +105,7 @@
           "signer": true
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
@@ -109,7 +115,7 @@
           "type": "string"
         },
         {
-          "name": "last_name",
+          "name": "lastName",
           "type": "string"
         },
         {
@@ -129,13 +135,13 @@
           "type": "string"
         },
         {
-          "name": "hourly_rate",
+          "name": "hourlyRate",
           "type": "u64"
         }
       ]
     },
     {
-      "name": "update_developer",
+      "name": "updateDeveloper",
       "discriminator": [
         188,
         50,
@@ -148,7 +154,7 @@
       ],
       "accounts": [
         {
-          "name": "dev_account",
+          "name": "devAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -185,7 +191,7 @@
           "type": "string"
         },
         {
-          "name": "last_name",
+          "name": "lastName",
           "type": "string"
         },
         {
@@ -205,7 +211,7 @@
           "type": "string"
         },
         {
-          "name": "hourly_rate",
+          "name": "hourlyRate",
           "type": "u64"
         }
       ]
@@ -213,7 +219,7 @@
   ],
   "accounts": [
     {
-      "name": "DeveloperProfile",
+      "name": "developerProfile",
       "discriminator": [
         124,
         166,
@@ -228,7 +234,7 @@
   ],
   "types": [
     {
-      "name": "DeveloperProfile",
+      "name": "developerProfile",
       "type": {
         "kind": "struct",
         "fields": [
@@ -241,7 +247,7 @@
             "type": "string"
           },
           {
-            "name": "last_name",
+            "name": "lastName",
             "type": "string"
           },
           {
@@ -261,11 +267,11 @@
             "type": "string"
           },
           {
-            "name": "hourly_rate",
+            "name": "hourlyRate",
             "type": "u64"
           }
         ]
       }
     }
   ]
-}
+};
