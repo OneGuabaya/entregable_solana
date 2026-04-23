@@ -1,0 +1,195 @@
+{
+  "address": "TLx9BAKaDHPT3aeZy3j6EzUmiXCcTsj86Dzv8LYL3a6",
+  "metadata": {
+    "name": "backend",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "delete_developer",
+      "discriminator": [
+        11,
+        248,
+        52,
+        0,
+        76,
+        132,
+        176,
+        39
+      ],
+      "accounts": [
+        {
+          "name": "dev_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  101,
+                  108,
+                  111,
+                  112,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "register_developer",
+      "discriminator": [
+        84,
+        32,
+        122,
+        101,
+        24,
+        135,
+        152,
+        65
+      ],
+      "accounts": [
+        {
+          "name": "dev_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  101,
+                  108,
+                  111,
+                  112,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "type": "string"
+        },
+        {
+          "name": "country",
+          "type": "string"
+        },
+        {
+          "name": "contact",
+          "type": "string"
+        },
+        {
+          "name": "techs",
+          "type": "string"
+        },
+        {
+          "name": "hourly_rate",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "DeveloperProfile",
+      "discriminator": [
+        124,
+        166,
+        166,
+        245,
+        18,
+        106,
+        19,
+        219
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "DeveloperProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "name": "contact",
+            "type": "string"
+          },
+          {
+            "name": "techs",
+            "type": "string"
+          },
+          {
+            "name": "hourly_rate",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}
